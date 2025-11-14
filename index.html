@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Insurance Claim Prediction</title>
+
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container" role="main">
+    <header>
+      <div>
+        <h1>Insurance Claim Prediction — Prototype</h1>
+        <div class="lead">A browser-only demo that predicts whether a policyholder will make a claim.</div>
+      </div>
+      <div style="text-align:right">
+        <div class="small">Student: <strong>Ubaidu Muhammad</strong></div>
+        <div class="small">Project: Insurance Claim Prediction</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- LEFT: Form -->
+      <section class="card">
+        <h2>Enter customer details</h2>
+
+        <form id="predict-form" onsubmit="return false;">
+          <div class="row">
+            <div>
+              <label>Age</label>
+              <input id="age" type="number" min="16" max="120" value="35" required>
+            </div>
+            <div>
+              <label>Gender</label>
+              <select id="gender">
+                <option value="0">Female</option>
+                <option value="1" selected>Male</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>Policy type</label>
+              <select id="policy">
+                <option value="0">Basic</option>
+                <option value="1">Premium</option>
+                <option value="2">Gold</option>
+              </select>
+            </div>
+            <div>
+              <label>Vehicle age</label>
+              <input id="vehicle_age" type="number" min="0" max="30" value="3">
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label>Previous claims</label>
+              <input id="previous_claims" type="number" min="0" max="50" value="0">
+            </div>
+            <div>
+              <label>Annual premium (₦)</label>
+              <input id="annual_premium" type="number" min="0" value="120000">
+            </div>
+          </div>
+
+          <div class="row buttons">
+            <button id="predict-btn" type="button">Predict</button>
+            <button id="add-row" type="button" class="ghost">Add to table</button>
+            <button id="download-csv" type="button" class="ghost">Download CSV</button>
+          </div>
+
+          <div id="prediction-output"></div>
+        </form>
+      </section>
+
+      <!-- RIGHT: Table -->
+      <aside class="card">
+        <h3>Saved entries</h3>
+
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Policy</th>
+              <th>Vehicle</th>
+              <th>Prev</th>
+              <th>Premium</th>
+              <th>Prob</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Link JS -->
+  <script src="script.js"></script>
+</body>
+</html>
